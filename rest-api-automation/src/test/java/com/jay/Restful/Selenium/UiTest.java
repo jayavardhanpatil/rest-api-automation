@@ -38,7 +38,7 @@ public class UiTest {
 		System.out.println("Page displayed");
 	}
 	
-	//Test trying to login to Facebook.com and logout
+	//Test trying to login to Facebook.com
 	@Test()
 	public void test_Facebook() throws Exception{
 		driver.get("http://www.facebook.com");
