@@ -13,6 +13,7 @@ import com.sun.jersey.api.client.WebResource;
 
 import clients.ApiTestClient;
 import request.CreateMessage;
+import request.CreateProfile;
 import response.GetMessageResponse;
 
 
