@@ -38,7 +38,7 @@ public class ApiTests extends ApiTestClient {
 	}
 
 	@Test()
-	public void test_createmessage() throws Exception {
+	public void test_createprofile() throws Exception {
 		CreateMessage createMessage = new CreateMessage();
 		createMessage.setFirstname("HarshPatil");
 		createMessage.setLastname("Patil");
