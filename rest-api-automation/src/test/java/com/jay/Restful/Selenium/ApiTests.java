@@ -38,15 +38,38 @@ public class ApiTests extends ApiTestClient {
 	}
 
 	@Test()
-	public void test_createprofile() throws Exception {
+	public void test_createMessage() throws Exception {
 		CreateMessage createMessage = new CreateMessage();
 		createMessage.setFirstname("HarshPatil");
 		createMessage.setLastname("Patil");
-		createMessage.setProfilename("profileName1");
+		createMessage.setMessage("Hello how are you");
 		//String GetMessage = createMessage(createMessage);
 		
 		ObjectMapper mapper = new ObjectMapper();
 		String body = mapper.writeValueAsString(createMessage);
+		
+		
+		 Client client = Client.create();
+	  WebResource webResource = client.resource("http://localhost:8080/Rest/webapi/messages");
+	  ClientResponse response = null;
+	  response = (ClientResponse)webResource.type("application/json").post(ClientResponse.class, body);
+	  System.out.println(response.getStatus());
+	  if (response.getStatus() == 200) {
+		  System.out.println("successfully HarshPatil message is posted");
+	  }else
+		  System.out.println("Failed to post message HarshPatil Profile created");
+	}
+	
+	@Test()
+	public void test_createprofile() throws Exception {
+		CreateProfile createProfile = new CreateProfile();
+		createProfile.setFirstname("HarshPatil");
+		createProfile.setLastname("Patil");
+		createProfile.setProfilename("profileName1");
+		//String GetMessage = createMessage(createMessage);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String body = mapper.writeValueAsString(createProfile);
 		
 		
 		 Client client = Client.create();
