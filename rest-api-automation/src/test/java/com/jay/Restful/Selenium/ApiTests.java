@@ -96,6 +96,7 @@ public class ApiTests extends ApiTestClient {
 		HttpResponse response = client.execute(post);
 		String responcebody = response.getEntity().toString();
 		System.out.println(responcebody);
+		Assert.assertEquals(response.getStatusLine().getStatusCode(), 200);
 		System.out.println(response.getStatusLine().getStatusCode());
 	}
 	//Delete particular profile with respect to id
@@ -105,6 +106,8 @@ public class ApiTests extends ApiTestClient {
 		WebResource webResource = client.resource("http://localhost:8080/Rest/webapi/profiles/{id}");
 		ClientResponse response = null;
 		response = webResource.delete(ClientResponse.class);
+		Assert.assertEquals(response.getStatus(), 204);
 		System.out.println(response.getStatus());
+		
 	}
 }
